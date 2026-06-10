@@ -6,12 +6,15 @@
 
 // Função que limpa o terminal
 void limparTerminal() {
-system("cls || clear");
+
+    system("cls || clear");
+
 }
 
 
 // Registro principal
 struct Coco {
+
     int id;
     int qualidade;
 
@@ -31,6 +34,7 @@ int quantidade = 0;
 
 // Menu Principal
 void menuPrincipal() {
+
     printf("|=============================================|\n");
     printf("|              SISTEMA DE COCOS               |\n");
     printf("|=============================================|\n");
@@ -44,6 +48,7 @@ void menuPrincipal() {
     printf("|            [7] Sair do Sistema              |\n");
     printf("|=============================================|\n");
     printf(" >> Escolha uma opção: ");
+
 }
 
 
@@ -83,13 +88,10 @@ void menuInserirCoco() {
     printf("Qual a nota do Coco (de 0 até 5): ");
     scanf("%f", &cocos[quantidade].nota);
 
-    // Registro Binário
-    printf("O coco é bom? (1-Sim | 0-Não): ");
-    scanf("%d", &cocos[quantidade].qualidade);
-
     // Salva o ID de acordo com a Posição do Indice
     quantidade++;
     
+    limparTerminal();
     printf("Coco Cadastrado com sucesso!\n\n");
 }
 
