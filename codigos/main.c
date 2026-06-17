@@ -1,3 +1,8 @@
+/*
+PROJETO: Avaliação e Listagem de Coconuts
+PARTICIPANTES: Jorge Luis de Freitas Junior & Luiz Gustavo Ferreira Junior
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
