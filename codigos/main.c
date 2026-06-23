@@ -1,3 +1,4 @@
+
 /*
 PROJETO: Avaliação e Listagem de Coconuts
 PARTICIPANTES: Jorge Luis de Freitas Junior & Luiz Gustavo Ferreira Junior
@@ -6,40 +7,30 @@ PARTICIPANTES: Jorge Luis de Freitas Junior & Luiz Gustavo Ferreira Junior
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <string.h>
-
 
 // Função que limpa o terminal
-void limparTerminal() {
-
+void limparTerminal()
+{
     system("cls || clear");
-
 }
 
-
-// Registro principal
-struct Coco {
-
+// registro 
+struct Coco 
+{
     int id;
     int ativo;
-
     char tipo[35];
     char pais[15];
-    
     float preco;
     float nota;
-
 };
-
 
 // Capacidade de Armazenar 10 Cocos e Indice e Contador dos Coconuts
 struct Coco cocos[10];
 int quantidade = 0;
-
-
-// Menu Principal
-void menuPrincipal() {
-
+ 
+void menuPrincipal()
+{
     printf("|====================================|\n");
     printf("|          SISTEMA DE COCOS          |\n");
     printf("|====================================|\n");
@@ -53,41 +44,45 @@ void menuPrincipal() {
     printf("|         [7] Sair do Sistema        |\n");
     printf("|====================================|\n");
     printf(" >>> Escolha uma opção: ");
-
 }
 
-
-// Menu Registro de Coconuts
 void menuInserirCoco() {
 
-    if (quantidade >= 10) {
+    int indiceVazio = -1;
+    int i;
 
-	printf("Não é possível registrar mais de 10 Coconuts\n");
-	return;
-
+    for ( i = 0; i < 10; i++ ) {
+    if ( cocos[i].ativo == 0 ) {
+        indiceVazio = i;
+        break;
+         }
     }
 
+    if ( indiceVazio == -1 ) {
+        printf("Não é possível registrar mais de 10 Coconuts. O sistema está cheio!\n");
+        printf("\nPressione ENTER para continuar >> ");
+        getchar();
+        getchar();
+        return;
+    }
 
     limparTerminal();
     printf("|============================================|\n");
     printf("|        MENU DE INSERÇÃO DE COCONUTS        |\n");
     printf("|============================================|\n");
 
-    // Registro da Especie
     printf("Tipo do Coco: ");
-    scanf("%s", cocos[quantidade].tipo);
-
-    // Registro do País Nativo
+    scanf(" %[^\n]", cocos[quantidade].tipo); //tipo 
+    
     printf("País nativo do Coco: ");
-    scanf("%s", cocos[quantidade].pais);
+    scanf(" %[^\n]", cocos[quantidade].pais); //pais
 
-    // Registro do Preço
     printf("Preço do Coco: ");
-    scanf("%f", &cocos[quantidade].preco);
+    scanf("%f", &cocos[quantidade].preco); //preco
 
-    // Registro da Nota
-    printf("Nota do Coco (de 0 até 5): ");
+    printf("Nota do Coco (de 0 até 5): "); //nota
     scanf("%f", &cocos[quantidade].nota);
+
     while(cocos[quantidade].nota > 5 || cocos[quantidade].nota < 0) {
       printf("Nota invalida, qual a nota do Coco (de 0 até 5): ");
       scanf("%f", &cocos[quantidade].nota);
@@ -97,15 +92,13 @@ void menuInserirCoco() {
     cocos[quantidade].ativo = cocos[quantidade].ativo = 1; //ativa o coco deixa ele = 1 :)
     quantidade++;
     
-    
-    
     limparTerminal();
     printf("|====================================|\n");
     printf("|    Coco Cadastrado com sucesso!    |\n");
 }
 
 
-// Menu de Listagem dos Coconuts
+// menu de listagem
 void menuListarCoco() {
 
     // Verificar se algum coco foi cadastrado
@@ -122,34 +115,29 @@ void menuListarCoco() {
 	return;
     }             
 
-
     int indice;
-    for ( indice = 0; indice < quantidade; indice++ ) { //entra na estrutura de repeticao parte q toma conta dos indices
-        if (cocos[indice].ativo == 1) {       //toma conta dos cocos ativos ou excluidos
-
-	    limparTerminal();
-
-	    printf("\n  Lista de Coconuts  \n\n");
+    for ( indice = 0; indice < quantidade; indice++ ) 
+    { //entra na estrutura de repeticao parte q toma conta dos indices
+        if (cocos[indice].ativo == 1) //toma conta dos cocos ativos ou excluidos
+        {
+        limparTerminal();
+	    printf("\nLista de Coconuts  \n\n");
 	    printf("ID: %d\n", indice);
 	    printf("Tipo: %s\n", cocos[indice].tipo);
 	    printf("País: %s\n", cocos[indice].pais);
 	    printf("Preço: R$%.2f \n", cocos[indice].preco);
 	    printf("Nota (0-5): %.1f\n", cocos[indice].nota);
-	    printf("Pressione ENTER para continuar >> ");
-		
-	   
-	    getchar();        
-	    getchar();
 
-	    limparTerminal();
-
-	}
-    }
+        printf("Pressione ENTER para continuar>");
+    
+        getchar();
+        getchar();
+	    }
+    } 
+    limparTerminal();
 }
 
-
 int id;
-// Menu para pesquisa de Coconuts
 void buscarCocos() {
 
     limparTerminal();
@@ -175,9 +163,7 @@ void buscarCocos() {
 
 }
 
-
 int excluir;
-// Menu de Exclusão de Coconuts
 void excluirCocos() {    
 
     limparTerminal();
@@ -210,8 +196,22 @@ void excluirCocos() {
     }
 }
 
+void menuEditarCocos() {
 
-// Menu de Edição de Coconuts
+	printf("|====================================|\n");
+	printf("|         EDIÇÃO DE COCONUTS         |\n");
+	printf("|====================================|\n");
+	printf("|            [1] Tipo                |\n");
+	printf("|            [2] País Nativo         |\n");
+	printf("|            [3] Preço               |\n");
+	printf("|            [4] Nota                |\n");
+	printf("|------------------------------------|\n");
+	printf("|         [5] Sair do Sistema        |\n");
+	printf("|====================================|\n");
+	printf(" >>> Qual tópico voce quer editar: ");
+
+}
+
 void editarCocos() {
 
     limparTerminal();
@@ -305,22 +305,54 @@ void editarCocos() {
     }
 }
 
+void resumoCocos() {
 
-// Submenu para editar Coconuts
-void menuEditarCocos() {
+    limparTerminal();
 
-	printf("|====================================|\n");
-	printf("|         EDIÇÃO DE COCONUTS         |\n");
-	printf("|====================================|\n");
-	printf("|            [1] Tipo                |\n");
-	printf("|            [2] País Nativo         |\n");
-	printf("|            [3] Preço               |\n");
-	printf("|            [4] Nota                |\n");
-	printf("|------------------------------------|\n");
-	printf("|         [5] Sair do Sistema        |\n");
-	printf("|====================================|\n");
-	printf(" >>> Qual tópico voce quer editar: ");
+    if ( quantidade == 0 ) {
+        printf("Nenhum coco foi cadastrado ainda.\n");
+        printf("\nPressione ENTER para continuar >> ");
+        getchar();
+        getchar();
+        return;
+    }
 
+    int i;
+    int totalAtivos = 0;
+    float somaPrecos = 0;
+    float somaNotas = 0;
+    int idMaisCaro = -1, idMaisBarato = -1;
+    int idMelhorNota = -1, idPiorNota = -1;
+
+    for ( i = 0; i < quantidade; i++ ) {
+
+        if ( cocos[i].ativo == 1 ) 
+        {
+            totalAtivos++;
+            somaPrecos += cocos[i].preco;
+            somaNotas += cocos[i].nota;
+        }
+}
+
+    if(totalAtivos==0)
+{
+        printf("Nenhum coco ativo no momento (todos foram excluidos).\n");           printf("\nPressione ENTER para continuar >> ");
+        getchar();
+        getchar();
+        return;
+}
+    printf("|====================================|\n");
+    printf("|       RESUMO / ESTATISTICAS         |\n");
+    printf("|====================================|\n");
+    printf("Total de Coconuts ativos: %d\n", totalAtivos);
+    printf("Preco medio: R$%.2f\n", somaPrecos / totalAtivos);
+    printf("Nota media: %.1f\n", somaNotas / totalAtivos);
+    printf("|====================================|\n");
+    printf("\nPressione ENTER para continuar >> ");
+    getchar();
+    getchar();
+
+    limparTerminal();
 }
 
 
@@ -367,12 +399,14 @@ int main() {
 
 	    case 5:
 	    buscarCocos();
-
 	    break;
+
+        case 6:
+        resumoCocos();
+        break;
 
 	}
     }
 
     return 0;
 }
-
