@@ -61,8 +61,8 @@ void inserirCoconut()
 
     // Alerta de armazamento cheio
     if ( indice == 10 ) {
-	printf("\nErro! Sistema está cheio\n");
-	return;
+        printf("\nErro! Sistema está cheio\n");
+        return;
     }
 
     printf("|=======================================|\n");
@@ -81,11 +81,11 @@ void inserirCoconut()
     printf("Digite o país nativo do coconut: ");
     scanf(" %[^\n]", cocos[indice].pais);
 
-    printf("Digite o preço do coconut: ");
+    printf("Digite o preço do coconut: R$ ");
     scanf("%f", &cocos[indice].preco);
     while ( cocos[indice].preco < 0 ) {
 	printf("Preço invalido! Digite novamente\n");
-	printf("Digite o preço do coconut: ");
+	printf("Digite o preço do coconut: R$ ");
 	scanf("%f", &cocos[indice].preco);
     }
 
@@ -127,7 +127,7 @@ void listarCoconut()
 	    printf(" ID: %d\n", cocos[indice].id);
 	    printf(" Espécie do Coconut: %s\n", cocos[indice].especie);
 	    printf(" País nativo: %s\n", cocos[indice].pais);
-	    printf(" Preço do Coconut: %.2f\n", cocos[indice].preco);
+	    printf(" Preço do Coconut: R$ %.2f\n", cocos[indice].preco);
 	    printf(" Nota do Coconut: %.2f\n", cocos[indice].nota);
 	    printf("|=======================================|\n");
 	    printf(" >>> Pressione ENTER para continuar");
@@ -138,14 +138,13 @@ void listarCoconut()
 	    getchar();
 	    //getchar();
 	    //break;
-	}
+        }
     }
 
-
     if ( cadastrados == 0 ) {
-	printf(" Não há nenhum Coconut registrado ainda!\n");
-	printf("|=======================================|\n");
-	printf(" >>> Pressione ENTER para continuar");
+        printf(" Não há nenhum Coconut registrado ainda!\n");
+        printf("|=======================================|\n");
+        printf(" >>> Pressione ENTER para continuar");
 
 	//fflush(stdin);
 	while(getchar() != '\n');
@@ -198,7 +197,7 @@ void pesquisarCoconut()
     }
 }
 
-// Submenu para a funcão editarCoconut 
+// Submenu para a funcão editarCoconut
 void menuEditar()
 {
 
@@ -331,7 +330,7 @@ void editarCoconut()
 		getchar();
 		//getchar();
 		break;
-	}
+        }
     }
 }
 
@@ -373,7 +372,7 @@ void excluirCoconut()
 		    printf("\nCoconut excluido com sucesso!\n");
 		}
 
-		else { //senão a acão é abortada 
+		else { //senão a acão é abortada
 		    printf("\nExclusão não realizada.\n");
 		}
 
@@ -388,13 +387,13 @@ void excluirCoconut()
     if ( indice == 10 ) {
         printf("|=======================================|\n");
         printf("     Esse ID específico não existe!\n");
-	printf("|=======================================|\n");
+        printf("|=======================================|\n");
     	printf(" >>> Pressione ENTER para continuar");
 
 	while(getchar() != '\n');
-        getchar();
-	//getchar();
-	return;
+    getchar();
+    //getchar();
+    return;
     }
 }
 
@@ -471,8 +470,8 @@ void resumoCoconut()
     printf(" Cocos cadastrados ativos: %d\n", ativos);
     printf(" Media de Preco: %.2f\n", mediaPreco);
     printf(" Media de Nota: %.1f\n", mediaNota);
-    printf(" Coco mais caro: %.2f - ID: %d\n", maxPreco,idMax);
-    printf(" Coco mais barato: %.2f - ID: %d\n", minPreco,idMin);
+    printf(" Coco mais caro: R$ %.2f - ID: %d\n", maxPreco,idMax);
+    printf(" Coco mais barato: R$ %.2f - ID: %d\n", minPreco,idMin);
     printf(" Coco com a melhor nota: %.1f - ID: %d\n", maxNota, idMaxNota);
     printf(" Coco com a pior nota: %.1f - ID: %d\n", minNota, idMinNota);
     printf("|=======================================|\n");
@@ -496,7 +495,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8); //só assim pro locale ir, tive problemas com o emacs salvando
 
     for ( int i = 0; i < 10; i++ ) {
-	cocos[i].ativo = 0;
+        cocos[i].ativo = 0;
     }
 
     while ( opcao != 7 ) {
