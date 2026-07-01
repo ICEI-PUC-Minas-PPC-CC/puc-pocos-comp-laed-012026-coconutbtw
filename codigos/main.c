@@ -54,9 +54,9 @@ void inserirCoconut()
 
     // Verifica o indice e se esta ativo
     for ( indice = 0; indice < 10; indice++ ) {
-	if (cocos[indice].ativo == 0) {
-	    break;
-        }
+		if (cocos[indice].ativo == 0) {
+		    break;
+	    }
     }
 
     // Alerta de armazamento cheio
@@ -165,42 +165,41 @@ void pesquisarCoconut()
     scanf("%d", &idPesquisa);
 
     for ( indice = 0; indice < 10; indice++ ) { //[indice].id e idPesquisa andam juntos e são validados
-	if ( cocos[indice].ativo == 1 && cocos[indice].id == idPesquisa ) {
-	    printf("|=======================================|\n");
-	    printf("            Coconut existente            \n");
-	    printf("|=======================================|\n");
-	    printf(" ID: %d\n", cocos[indice].id);
-	    printf(" Espécie do Coconut: %s\n", cocos[indice].especie);
-	    printf(" País nativo: %s\n", cocos[indice].pais);
-	    printf(" Preço do Coconut: %.2f\n", cocos[indice].preco);
-	    printf(" Nota do Coconut: %.2f\n", cocos[indice].nota);
-	    printf("|=======================================|\n");
-	    printf(" >>> Pressione ENTER para continuar");
-
-	    //fflush(stdin);
-	    while(getchar() != '\n');
-	    getchar();
-	    //getchar();
-	    break;
-	}
+		if ( cocos[indice].ativo == 1 && cocos[indice].id == idPesquisa ) {
+		    printf("|=======================================|\n");
+		    printf("            Coconut existente            \n");
+		    printf("|=======================================|\n");
+		    printf(" ID: %d\n", cocos[indice].id);
+		    printf(" Espécie do Coconut: %s\n", cocos[indice].especie);
+		    printf(" País nativo: %s\n", cocos[indice].pais);
+		    printf(" Preço do Coconut: %.2f\n", cocos[indice].preco);
+		    printf(" Nota do Coconut: %.2f\n", cocos[indice].nota);
+		    printf("|=======================================|\n");
+		    printf(" >>> Pressione ENTER para continuar");
+	
+		    //fflush(stdin);
+		    while(getchar() != '\n');
+		    getchar();
+		    //getchar();
+		    break;
+		}
     }
 
     if ( indice == 10 ) { //ele sai do for anterior valendo 10, caso não exista coco ativo
-	printf("|=======================================|\n");
-	printf("    Não há nenhum Coconut com esse ID    \n");
-	printf("|=======================================|\n");
-	printf(" >>> Pressione ENTER para continuar");
-
-	while(getchar() != '\n');
-	getchar();
-	//getchar();
+		printf("|=======================================|\n");
+		printf("    Não há nenhum Coconut com esse ID    \n");
+		printf("|=======================================|\n");
+		printf(" >>> Pressione ENTER para continuar");
+	
+		while(getchar() != '\n');
+		getchar();
+		//getchar();
     }
 }
 
 // Submenu para a funcão editarCoconut
 void menuEditar()
 {
-
     printf("|---------------------------------------|\n");
     printf("|       O QUE VOCÊ PRECISA EDITAR       |\n");
     printf("|---------------------------------------|\n");
@@ -226,37 +225,37 @@ void editarCoconut()
     scanf("%d", &idPesquisa);
 
     for ( indice = 0; indice < 10; indice++ ) {
-	if ( cocos[indice].ativo == 1 && cocos[indice].id == idPesquisa ) {
-	    printf("|=======================================|\n");
-	    printf("            Coconut existente            \n");
-	    printf("|=======================================|\n");
-	    printf(" ID: %d\n", cocos[indice].id);
-	    printf(" Espécie do Coconut: %s\n", cocos[indice].especie);
-	    printf(" País nativo: %s\n", cocos[indice].pais);
-	    printf(" Preço do Coconut: %.2f\n", cocos[indice].preco);
-	    printf(" Nota do Coconut: %.2f\n", cocos[indice].nota);
-	    printf("|=======================================|\n");
-	    printf(" >>> Pressione ENTER para continuar");
-
-	    //fflush(stdin);
-	    while(getchar() != '\n');
-	    getchar();
-	    //getchar();
-	    break;
-
-        }
+		if ( cocos[indice].ativo == 1 && cocos[indice].id == idPesquisa ) {
+		    printf("|=======================================|\n");
+		    printf("            Coconut existente            \n");
+		    printf("|=======================================|\n");
+		    printf(" ID: %d\n", cocos[indice].id);
+		    printf(" Espécie do Coconut: %s\n", cocos[indice].especie);
+		    printf(" País nativo: %s\n", cocos[indice].pais);
+		    printf(" Preço do Coconut: %.2f\n", cocos[indice].preco);
+		    printf(" Nota do Coconut: %.2f\n", cocos[indice].nota);
+		    printf("|=======================================|\n");
+		    printf(" >>> Pressione ENTER para continuar");
+	
+		    //fflush(stdin);
+		    while(getchar() != '\n');
+		    getchar();
+		    //getchar();
+		    break;
+	
+	        }
     }
 
     if ( indice == 10 ) { //mesma lógica já comentada, sai do for da funcão valendo se for = 10, informa o usuário
-	printf("|=======================================|\n");
-	printf(" Não há nenhum Coconut registrado ainda!\n");
-	printf("|=======================================|\n");
-	printf(" >>> Pressione ENTER para continuar");
-
-	while(getchar() != '\n');
-	getchar();
-	//getchar();
-	return; //retorna o usuário pro main, no caso o menu principal
+		printf("|=======================================|\n");
+		printf(" Não há nenhum Coconut registrado ainda!\n");
+		printf("|=======================================|\n");
+		printf(" >>> Pressione ENTER para continuar");
+	
+		while(getchar() != '\n');
+		getchar();
+		//getchar();
+		return; //retorna o usuário pro main, no caso o menu principal
     }
 
     while ( opcao != 5 ) { //enquanto opcão diferente de 5, deixa o menu rodando, no caso o menuEditar
@@ -271,65 +270,65 @@ void editarCoconut()
 
 	switch ( opcao ) {
 	    case 1:
-		while(getchar() != '\n');
-		//fflush(stdin);
-		printf("Insira a nova espécie do Coconut: ");
-		scanf(" %[^\n]", cocos[indice].especie); //edita o coco referente ao indice que já foi validado
-
-		printf("|=======================================|\n");
-		printf(" >>> Pressione ENTER para continuar");
-
-		while(getchar() != '\n');
-		getchar();
-		//getchar();
-		break;
+			while(getchar() != '\n');
+			//fflush(stdin);
+			printf("Insira a nova espécie do Coconut: ");
+			scanf(" %[^\n]", cocos[indice].especie); //edita o coco referente ao indice que já foi validado
+	
+			printf("|=======================================|\n");
+			printf(" >>> Pressione ENTER para continuar");
+	
+			while(getchar() != '\n');
+			getchar();
+			//getchar();
+			break;
 
 	    case 2:
-		while(getchar() != '\n');
-		printf("Insira o novo país do Coconut: ");
-		scanf(" %[^\n]", cocos[indice].pais);
-
-		printf("|=======================================|\n");
-		printf(" >>> Pressione ENTER para continuar");
-
-		while(getchar() != '\n');
-		//getchar();
-		getchar(); //pede entrada do enter pro usuário
-		break;
+			while(getchar() != '\n');
+			printf("Insira o novo país do Coconut: ");
+			scanf(" %[^\n]", cocos[indice].pais);
+	
+			printf("|=======================================|\n");
+			printf(" >>> Pressione ENTER para continuar");
+	
+			while(getchar() != '\n');
+			//getchar();
+			getchar(); //pede entrada do enter pro usuário
+			break;
 
 	    case 3:
-		printf("Digite o novo preço do coconut: ");
-		scanf("%f", &cocos[indice].preco);
-		while ( cocos[indice].preco < 0 ) {
-		    printf("Preço inválido! Digite novamente\n");
-		    printf("Digite o novo preço do coconut: ");
-		    scanf("%f", &cocos[indice].preco);
-		}
-
-		printf("|=======================================|\n");
-		printf(" >>> Pressione ENTER para continuar");
-
-		while(getchar() != '\n');
-		getchar();
-		//getchar();
-		break;
+			printf("Digite o novo preço do coconut: ");
+			scanf("%f", &cocos[indice].preco);
+			while ( cocos[indice].preco < 0 ) {
+			    printf("Preço inválido! Digite novamente\n");
+			    printf("Digite o novo preço do coconut: ");
+			    scanf("%f", &cocos[indice].preco);
+			}
+	
+			printf("|=======================================|\n");
+			printf(" >>> Pressione ENTER para continuar");
+	
+			while(getchar() != '\n');
+			getchar();
+			//getchar();
+			break;
 
 	    case 4:
-		printf("Digite a nota do coconut (0-5): ");
-		scanf("%f", &cocos[indice].nota);
-		while ( cocos[indice].nota < 0 || cocos[indice].nota > 5) {
-		    printf("Nota inválida! Digite novamente\n");
-		    printf("Digite a nota do coconut (0-5): ");
-		    scanf("%f", &cocos[indice].nota);
-		}
-
-		printf("|=======================================|\n");
-		printf(" >>> Pressione ENTER para continuar");
-
-		while(getchar() != '\n');
-		getchar();
-		//getchar();
-		break;
+			printf("Digite a nota do coconut (0-5): ");
+			scanf("%f", &cocos[indice].nota);
+			while ( cocos[indice].nota < 0 || cocos[indice].nota > 5) {
+			    printf("Nota inválida! Digite novamente\n");
+			    printf("Digite a nota do coconut (0-5): ");
+			    scanf("%f", &cocos[indice].nota);
+			}
+	
+			printf("|=======================================|\n");
+			printf(" >>> Pressione ENTER para continuar");
+	
+			while(getchar() != '\n');
+			getchar();
+			//getchar();
+			break;
         }
     }
 }
@@ -381,6 +380,7 @@ void excluirCoconut()
 		getchar();
 		getchar();
 		break;
+			
 	    }
     }
 
@@ -390,10 +390,10 @@ void excluirCoconut()
         printf("|=======================================|\n");
     	printf(" >>> Pressione ENTER para continuar");
 
-	while(getchar() != '\n');
-    getchar();
-    //getchar();
-    return;
+		while(getchar() != '\n');
+	    getchar();
+	    //getchar();
+	    return;
     }
 }
 
@@ -458,7 +458,7 @@ void resumoCoconut()
             printf("|=======================================|\n");
             printf(" >>> Pressione ENTER para continuar");
 
-	    while(getchar() != '\n');
+		    while(getchar() != '\n');
             getchar();
             //getchar();
             return;
@@ -489,6 +489,7 @@ int main() {
     limparTerminal();
 
     int opcao = 0;
+	
     setlocale(LC_ALL, ".UTF8");
     SetConsoleOutputCP;
     SetConsoleCP(CP_UTF8);
